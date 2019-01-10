@@ -1,42 +1,59 @@
 // @flow
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import type { Node, Element as ReactElement } from "react";
 import ReactDOM from "react-dom";
+import { BackgroundDiv, WrapperDiv } from "./styles";
 
-type Props = {
+type ModalProps = {
   isOpen?: boolean,
   children: ReactElement<*>,
-  target: Element
+  target?: Element
 };
 
-export function Modal({
-  isOpen,
+export const Modal = ({
   children,
   target = (document.body: any)
-}: Props) {
-  return isOpen ? ReactDOM.createPortal(children, target) : null;
-}
+}: ModalProps) => ReactDOM.createPortal(children, target);
 
-export function ModalWithOverlay({
-  onClickOverlay,
-  ...modalProps
-}: {
-  ...Props,
-  onClickOverlay: () => void
-}) {
+type OverlayProps = {
+  children: ReactElement<*>,
+  onClick: () => void
+};
+
+export const Overlay = ({ onClick, children }: OverlayProps) => {
   const modalContentsRef = useRef(null);
   return (
-    <div
-      className="modal-background"
+    <BackgroundDiv
+      class="modal-background"
       onClick={e =>
         modalContentsRef.current &&
         !modalContentsRef.current.contains(e.target) &&
-        onClickOverlay()
+        onClick()
       }
     >
-      <div className="modal-wrapper" ref={modalContentsRef}>
-        <Modal {...modalProps} />
-      </div>
-    </div>
+      <WrapperDiv className="modal-wrapper" ref={modalContentsRef}>
+        {children}
+      </WrapperDiv>
+    </BackgroundDiv>
   );
-}
+};
+
+type ModalCreator = (closeModal: () => void) => ReactElement<*>;
+
+export const createModal = (modalCreator: ModalCreator) => {
+  let openModal;
+  const ModalExample = () => {
+    const [isModalOpen, setModalOpen] = useState(false);
+    openModal = () => {
+      console.log("opening");
+      setModalOpen(true);
+    };
+    return isModalOpen ? (
+      <Overlay onClick={() => setModalOpen(false)}>
+        <Modal>{modalCreator(() => setModalOpen(false))}</Modal>
+      </Overlay>
+    ) : null;
+  };
+  const modal = <ModalExample />;
+  return [modal, () => openModal()];
+};

@@ -2,34 +2,38 @@
 import React, { useState } from "react";
 import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
+import styled from "styled-components";
 
-import { ModalWithOverlay } from "./src";
+import { createModal, Overlay, Modal } from "./src";
 
-function ModalExample() {
-  const [isModalOpen, setModalOpen] = useState(false);
+const Button = styled.button`
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  :hover {
+    background: #f2f2f2;
+  }
+  :active {
+    background: #c0c0c0;
+  }
+  :focus {
+    outline: none;
+  }
+`;
+
+storiesOf("Modal", module).add("default", () => {
+  const [modal, openModal] = createModal(closeModal => (
+    <div>
+      <div>{"Modal  Content"}</div>
+      <Button onClick={closeModal}>{"Close Modal"}</Button>
+    </div>
+  ));
   return (
     <div className="App">
-      <button onClick={() => setModalOpen(true)}>Open Modal</button>
-      <ModalWithOverlay
-        onClickOverlay={() => setModalOpen(false)}
-        isOpen={isModalOpen}
-      >
-        <div>
-          <div>{"Modal  Content"}</div>
-          <button onClick={() => setModalOpen(false)}>{"Close Modal"}</button>
-        </div>
-      </ModalWithOverlay>
+      <Button onClick={openModal}>Open Modal</Button>
+      {modal}
     </div>
   );
-}
-
-storiesOf("Modal", module)
-  .add("open modal", () => (
-    <ModalWithOverlay onClickOverlay={action("onClickOverlay")} isOpen={true}>
-      <div>
-        <div>{"Modal  Content"}</div>
-        <button onClick={action("onClick")}>{"Close Modal"}</button>
-      </div>
-    </ModalWithOverlay>
-  ))
-  .add("uncontrolled", () => <ModalExample />);
+});
