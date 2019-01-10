@@ -1,0 +1,41 @@
+{
+  "name": "react-modal",
+  "version": "0.0.1",
+  "description": "Minimal React Modal",
+  "main": "index.js",
+  "scripts": {
+    "start": "start-storybook -p 9001",
+    "test": "jest",
+    "build": "yarn build:src && yarn build:flow && yarn build:storybook",
+    "build:src": "./node_modules/.bin/webpack --mode=production",
+    "build:flow": "flow-copy-source -v src dist",
+    "build:storybook": "build-storybook -c .storybook -o docs"
+  },
+  "author": "Ben Shope",
+  "license": "MIT",
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^16",
+    "react-dom": "^16"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/addon-a11y": "^4",
+    "@storybook/addon-actions": "^4",
+    "@storybook/addon-info": "^4",
+    "@storybook/addon-options": "^4",
+    "@storybook/addon-storyshots": "^4",
+    "@storybook/react": "^4",
+    "babel-core": "6",
+    "babel-loader": "^8.0.0-beta",
+    "flow-bin": "^0.89.0",
+    "flow-copy-source": "^2.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "webpack": "^4.28.1",
+    "webpack-cli": "^3.2.1"
+  }
+}

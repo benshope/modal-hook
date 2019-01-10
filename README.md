@@ -1,2 +1,3 @@
 # react-modal
-Simple React Modal Component
+
+Minimal react modal
