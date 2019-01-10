@@ -1,31 +1,42 @@
 // @flow
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
+import type { Node, Element as ReactElement } from "react";
 import ReactDOM from "react-dom";
 
-const createModal = (modalContents, element = document.body) => {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const modal = isModalOpen
-    ? ReactDOM.createPortal(modalContents(() => setModalOpen(false)), element)
-    : null;
-  return [modal, () => setModalOpen(true)];
+type Props = {
+  isOpen?: boolean,
+  children: ReactElement<*>,
+  target: Element
 };
 
-const createModalWithOverlay = (modalContents, element) => {
+export function Modal({
+  isOpen,
+  children,
+  target = (document.body: any)
+}: Props) {
+  return isOpen ? ReactDOM.createPortal(children, target) : null;
+}
+
+export function ModalWithOverlay({
+  onClickOverlay,
+  ...modalProps
+}: {
+  ...Props,
+  onClickOverlay: () => void
+}) {
   const modalContentsRef = useRef(null);
-  return createModal(closeModal => (
+  return (
     <div
       className="modal-background"
       onClick={e =>
         modalContentsRef.current &&
         !modalContentsRef.current.contains(e.target) &&
-        closeModal()
+        onClickOverlay()
       }
     >
       <div className="modal-wrapper" ref={modalContentsRef}>
-        {modalContents(closeModal)}
+        <Modal {...modalProps} />
       </div>
     </div>
-  ));
-};
-
-export default createModalWithOverlay;
+  );
+}

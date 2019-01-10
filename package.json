@@ -15,8 +15,8 @@
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {
-    "react": "^16",
-    "react-dom": "^16"
+    "react": "16.8.0-alpha.0",
+    "react-dom": "16.8.0-alpha.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.42",
@@ -33,8 +33,8 @@
     "babel-loader": "^8.0.0-beta",
     "flow-bin": "^0.89.0",
     "flow-copy-source": "^2.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
+    "react": "16.8.0-alpha.0",
+    "react-dom": "16.8.0-alpha.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1"
   }

@@ -5666,6 +5666,15 @@ react-docgen@^3.0.0-rc.1:
     node-dir "^0.1.10"
     recast "^0.16.0"
 
+react-dom@16.8.0-alpha.0:
+  version "16.8.0-alpha.0"
+  resolved "https://unpm.uberinternal.com/react-dom/-/react-dom-16.8.0-alpha.0.tgz#47bbcf42593eab5468b577d3c3f3c27f251a65ef"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.0-alpha.0"
+
 react-dom@^16.6.3, react-dom@^16.7.0:
   version "16.7.0"
   resolved "https://unpm.uberinternal.com/react-dom/-/react-dom-16.7.0.tgz#a17b2a7ca89ee7390bc1ed5eb81783c7461748b8"
@@ -5752,6 +5761,15 @@ react-treebeard@^3.1.0:
     prop-types "^15.6.2"
     shallowequal "^1.1.0"
     velocity-react "^1.4.1"
+
+react@16.8.0-alpha.0:
+  version "16.8.0-alpha.0"
+  resolved "https://unpm.uberinternal.com/react/-/react-16.8.0-alpha.0.tgz#8545eb79534cce5ba99ed40085f7f955e8857a19"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.0-alpha.0"
 
 react@^16.6.3, react@^16.7.0:
   version "16.7.0"
@@ -6088,6 +6106,13 @@ sax@^1.2.4, sax@~1.2.4:
 scheduler@^0.12.0:
   version "0.12.0"
   resolved "https://unpm.uberinternal.com/scheduler/-/scheduler-0.12.0.tgz#8ab17699939c0aedc5a196a657743c496538647b"
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+
+scheduler@^0.13.0-alpha.0:
+  version "0.13.0-alpha.0"
+  resolved "https://unpm.uberinternal.com/scheduler/-/scheduler-0.13.0-alpha.0.tgz#8fc1f01617b59e4543376735b2f954867d49110c"
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
