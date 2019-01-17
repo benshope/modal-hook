@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 import type { Node, Element as ReactElement } from "react";
 import ReactDOM from "react-dom";
-import { BackgroundDiv, WrapperDiv } from "./styles";
+import { OverlayDiv, ModalDiv } from "./styles";
 
 type ModalProps = {
   isOpen?: boolean,
@@ -23,7 +23,7 @@ type OverlayProps = {
 export const Overlay = ({ onClick, children }: OverlayProps) => {
   const modalContentsRef = useRef(null);
   return (
-    <BackgroundDiv
+    <OverlayDiv
       class="modal-background"
       onClick={e =>
         modalContentsRef.current &&
@@ -31,29 +31,30 @@ export const Overlay = ({ onClick, children }: OverlayProps) => {
         onClick()
       }
     >
-      <WrapperDiv className="modal-wrapper" ref={modalContentsRef}>
+      <ModalDiv className="modal-wrapper" ref={modalContentsRef}>
         {children}
-      </WrapperDiv>
-    </BackgroundDiv>
+      </ModalDiv>
+    </OverlayDiv>
   );
 };
 
 type ModalCreator = (closeModal: () => void) => ReactElement<*>;
 
-export const createModal = (modalCreator: ModalCreator) => {
+export const useModalAndOverlay = (modalCreator: ModalCreator) => {
   let openModal;
   const ModalExample = () => {
     const [isModalOpen, setModalOpen] = useState(false);
-    openModal = () => {
-      console.log("opening");
-      setModalOpen(true);
-    };
+    openModal = () => setModalOpen(true);
     return isModalOpen ? (
-      <Overlay onClick={() => setModalOpen(false)}>
-        <Modal>{modalCreator(() => setModalOpen(false))}</Modal>
-      </Overlay>
+      <Modal>{modalCreator(() => setModalOpen(false))}</Modal>
     ) : null;
   };
   const modal = <ModalExample />;
   return [modal, () => openModal()];
+};
+
+export const useModal = (modalCreator: ModalCreator) => {
+  return useModalAndOverlay(closeModal => (
+    <Overlay onClick={closeModal}>{modalCreator(closeModal)}</Overlay>
+  ));
 };

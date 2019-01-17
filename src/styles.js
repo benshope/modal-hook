@@ -1,7 +1,7 @@
 // @flow
 import styled from "styled-components";
 
-export const BackgroundDiv = styled.div`
+export const OverlayDiv = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@ export const BackgroundDiv = styled.div`
   background-color: rgba(0, 0, 0, 0.2);
 `;
 
-export const WrapperDiv = styled.div`
+export const ModalDiv = styled.div`
   position: fixed;
   padding: 2.5em 1.5em 1.5em 1.5em;
   background-color: #ffffff;

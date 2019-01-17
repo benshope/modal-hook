@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions";
 import { storiesOf } from "@storybook/react";
 import styled from "styled-components";
 
-import { createModal, Overlay, Modal } from "./src";
+import { useModal, Overlay, Modal } from "./src";
 
 const Button = styled.button`
   padding: 1rem;
@@ -24,7 +24,7 @@ const Button = styled.button`
 `;
 
 storiesOf("Modal", module).add("default", () => {
-  const [modal, openModal] = createModal(closeModal => (
+  const [modalElement, openModal] = useModal(closeModal => (
     <div>
       <div>{"Modal  Content"}</div>
       <Button onClick={closeModal}>{"Close Modal"}</Button>
@@ -33,7 +33,7 @@ storiesOf("Modal", module).add("default", () => {
   return (
     <div className="App">
       <Button onClick={openModal}>Open Modal</Button>
-      {modal}
+      {modalElement}
     </div>
   );
 });
