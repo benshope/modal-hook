@@ -15,7 +15,7 @@ export const OverlayDiv = styled.div`
 export const ModalDiv = styled.div`
   position: fixed;
   padding: 2.5em 1.5em 1.5em 1.5em;
-  background-color: #ffffff;
+  background-color: white;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   left: 50%;
