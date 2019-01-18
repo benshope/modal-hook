@@ -1,6 +1,6 @@
 {
   "name": "minimalist-react-modal",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Minimalist React Modal",
   "main": "dist/index.js",
   "files": ["dist"],
@@ -20,6 +20,9 @@
   "peerDependencies": {
     "react": "^16.8.0-alpha.0",
     "react-dom": "^16.8.0-alpha.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.42",
