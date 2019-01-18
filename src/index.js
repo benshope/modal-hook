@@ -3,44 +3,47 @@ import React, { useRef, useState } from "react";
 import type { AbstractComponent, Node, Element as ReactElement } from "react";
 import ReactDOM from "react-dom";
 import {
-  OverlayDiv as DefaultOverlayDiv,
+  BackdropDiv as DefaultBackdropDiv,
   ModalDiv as DefaultModalDiv
 } from "./styles";
 
 type ModalOverrides = {
-  OverlayDiv?: AbstractComponent<*>,
-  ModalDiv?: AbstractComponent<*>
+  target?: Element,
+  backdrop?: AbstractComponent<*>,
+  modal?: AbstractComponent<*>
 };
 
 type ModalCreator = (closeModal: () => void) => ReactElement<*>;
 
+export const Backdrop = DefaultBackdropDiv;
+export const Modal = DefaultModalDiv;
+
 export const useModal = (
   modalCreator: ModalCreator,
-  target?: Element,
   overrides?: ModalOverrides
 ) => {
   let openModal;
-  const OverlayDiv = (overrides && overrides.OverlayDiv) || DefaultOverlayDiv;
-  const ModalDiv = (overrides && overrides.ModalDiv) || DefaultModalDiv;
+  const BackdropDiv = (overrides && overrides.backdrop) || DefaultBackdropDiv;
+  const ModalDiv = (overrides && overrides.modal) || DefaultModalDiv;
   const ModalExample = () => {
-    const modalContentsRef = useRef(null);
     const [isModalOpen, setModalOpen] = useState(false);
+    const modalRef = useRef(null);
     openModal = () => setModalOpen(true);
     return isModalOpen
       ? ReactDOM.createPortal(
-          <OverlayDiv
+          <BackdropDiv
             class="modal-background"
             onClick={e =>
-              modalContentsRef.current &&
-              !modalContentsRef.current.contains(e.target) &&
+              modalRef.current &&
+              !modalRef.current.contains(e.target) &&
               setModalOpen(false)
             }
           >
-            <ModalDiv className="modal-wrapper" ref={modalContentsRef}>
+            <ModalDiv className="modal-wrapper" ref={modalRef}>
               {modalCreator(() => setModalOpen(false))}
             </ModalDiv>
-          </OverlayDiv>,
-          target || ((document.body: any): Element)
+          </BackdropDiv>,
+          (overrides && overrides.target) || ((document.body: any): Element)
         )
       : null;
   };

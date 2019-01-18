@@ -1,7 +1,7 @@
 // @flow
 import styled from "styled-components";
 
-export const OverlayDiv = styled.div`
+export const BackdropDiv = styled.div`
   position: fixed;
   top: 0;
   left: 0;

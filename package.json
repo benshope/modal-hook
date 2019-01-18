@@ -1,7 +1,7 @@
 {
-  "name": "react-modal",
+  "name": "minimalist-react-modal",
   "version": "0.0.1",
-  "description": "Minimal React Modal",
+  "description": "Minimalist React Modal",
   "main": "index.js",
   "scripts": {
     "start": "start-storybook -p 9001",
@@ -15,8 +15,8 @@
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {
-    "react": "16.8.0-alpha.0",
-    "react-dom": "16.8.0-alpha.0"
+    "react": "^16.8.0-alpha.0",
+    "react-dom": "^16.8.0-alpha.0"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.42",

@@ -1,3 +1,3 @@
 # react-modal
 
-Minimal react modal
+Minimalist React Modal
