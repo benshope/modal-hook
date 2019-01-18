@@ -7,10 +7,10 @@
   "scripts": {
     "start": "start-storybook -p 9001",
     "test": "jest",
-    "build": "yarn build:src && yarn build:flow && yarn build:storybook",
+    "build": "yarn build:src && yarn build:flow",
     "build:src": "./node_modules/.bin/webpack --mode=production",
     "build:flow": "flow-copy-source -v src dist",
-    "build:storybook": "rm -rf docs && build-storybook -c .storybook -o docs",
+    "build:storybook": "rm -rf docs && mkdir docs && build-storybook -c .storybook -o docs",
     "set-registry": "perl -pi -e 's/unpm.uberinternal.com/registry.yarnpkg.com/g' `find . -name yarn.lock`",
     "publish-patch": "yarn set-registry && git push --tags && yarn build && yarn publish"
   },

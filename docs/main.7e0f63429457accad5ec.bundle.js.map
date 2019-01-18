@@ -1,1 +1,0 @@
-{"version":3,"file":"main.7e0f63429457accad5ec.bundle.js","sources":["webpack:///./src/index.js"],"sourcesContent":["// @flow\nimport React from \"react\";\n\ntype Props = { text: string };\nexport default function Button({ text }: Props) {\n  return <button>{text}</button>;\n}\n"],"mappings":"AACA","sourceRoot":""}
