@@ -5,14 +5,15 @@
   "main": "dist/index.js",
   "files": ["dist"],
   "scripts": {
-    "start": "start-storybook -p 9001",
-    "test": "jest",
     "build": "yarn build:src && yarn build:flow",
     "build:src": "./node_modules/.bin/webpack --mode=production",
     "build:flow": "flow-copy-source -v src dist",
-    "build:storybook": "rm -rf docs && mkdir docs && build-storybook -c .storybook -o docs",
+    "build:storybook": "rm -rf docs && mkdir docs && build-storybook -o docs",
+    "deploy-storybook": "storybook-to-ghpages",
     "set-registry": "perl -pi -e 's/unpm.uberinternal.com/registry.yarnpkg.com/g' `find . -name yarn.lock`",
-    "publish-patch": "yarn set-registry && git push --tags && yarn build && yarn publish"
+    "start": "yarn storybook",
+    "storybook": "start-storybook -p 9001",
+    "test": "jest"
   },
   "author": "Ben Shope",
   "license": "MIT",
@@ -35,6 +36,7 @@
     "@storybook/addon-options": "^4",
     "@storybook/addon-storyshots": "^4",
     "@storybook/react": "^4",
+    "@storybook/storybook-deployer": "^2.8.1",
     "babel-core": "6",
     "babel-loader": "^8.0.0-beta",
     "flow-bin": "^0.89.0",
