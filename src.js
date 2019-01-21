@@ -27,7 +27,7 @@ export const useModal = (
   const ModalDiv = (overrides && overrides.modal) || DefaultModalDiv;
   const ModalExample = () => {
     const [isModalOpen, setModalOpen] = useState(false);
-    const modalRef = useRef(null);
+    const modalRef: any = useRef(null); // TODO fix type
     openModal = () => setModalOpen(true);
     return isModalOpen
       ? ReactDOM.createPortal(
