@@ -1,6 +1,6 @@
 # Minimal React Modal
 
-The idea behind this modal component is to keep it simple.  This implementation should handle most use cases and never need to change.  It is one file and only two peer dependencies.
+The idea behind this modal component is to keep it simple.  The implementation is one file, it handles most use cases, and it has no dependencies.
 
 ## Install
 
