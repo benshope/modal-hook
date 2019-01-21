@@ -3,15 +3,12 @@
   "version": "0.0.4",
   "description": "Minimalist React Modal",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "yarn build:src && yarn build:flow",
     "build:src": "./node_modules/.bin/webpack --mode=production",
     "build:flow": "flow-copy-source -v src dist",
-    "build:storybook": "rm -rf docs && mkdir docs && build-storybook -o docs",
-    "deploy-storybook": "storybook-to-ghpages",
+    "build:storybook": "build-storybook -o docs",
     "set-registry": "perl -pi -e 's/unpm.uberinternal.com/registry.yarnpkg.com/g' `find . -name yarn.lock`",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9001",
