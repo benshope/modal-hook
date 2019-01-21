@@ -1,11 +1,9 @@
 {
-  "name": "minimalist-react-modal",
+  "name": "minimal-react-modal",
   "version": "0.0.5",
-  "description": "Minimalist React Modal",
+  "description": "Minimal React Modal",
   "main": "dist/index.js",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "yarn build:src && yarn build:flow",
     "build:src": "./node_modules/.bin/webpack --mode=production",
