@@ -3,7 +3,9 @@
   "version": "0.0.4",
   "description": "Minimalist React Modal",
   "main": "dist/index.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "yarn build:src && yarn build:flow",
     "build:src": "./node_modules/.bin/webpack --mode=production",
@@ -36,7 +38,6 @@
     "@storybook/addon-options": "^4",
     "@storybook/addon-storyshots": "^4",
     "@storybook/react": "^4",
-    "@storybook/storybook-deployer": "^2.8.1",
     "babel-core": "6",
     "babel-loader": "^8.0.0-beta",
     "flow-bin": "^0.89.0",
