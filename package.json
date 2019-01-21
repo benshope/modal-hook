@@ -1,6 +1,6 @@
 {
-  "name": "minimal-react-modal",
-  "version": "0.0.5",
+  "name": "@ben/react-modal",
+  "version": "0.0.1",
   "description": "Minimal React Modal",
   "main": "dist/index.js",
   "files": ["dist"],
