@@ -1,7 +1,7 @@
 {
   "name": "light-react-modal",
   "version": "0.0.2",
-  "description": "Minimal React Modal",
+  "description": "Light React Modal",
   "main": "dist/index.js",
   "files": ["dist"],
   "scripts": {
