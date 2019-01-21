@@ -4,8 +4,8 @@ The idea behind this modal component is to keep it simple.  The implementation i
 
 ## Install
 
-Npm: `npm install minimal-react-modal --save-dev`
-Yarn: `yarn add minimal-react-modal --dev`
+- Npm: `npm install minimal-react-modal --save-dev`
+- Yarn: `yarn add minimal-react-modal --dev`
 
 # Use
 
