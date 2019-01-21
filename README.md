@@ -13,4 +13,4 @@ See the [examples](https://benshope.github.io/light-react-modal) and the [exampl
 
 # Help
 
-If there are any examples you'd like to see or use cases I didn't cover, please [file an issue](https://github.com/benshope/light-react-modal/issues).
+If there are any examples you'd like to see or use cases I didn't cover, please [file an issue](https://github.com/benshope/light-react-modal/issues/new).
