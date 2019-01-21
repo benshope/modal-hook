@@ -4,12 +4,12 @@ The idea behind this modal component is to keep it simple.  The implementation i
 
 ## Install
 
-- Npm: `npm install minimal-react-modal --save-dev`
-- Yarn: `yarn add minimal-react-modal --dev`
+- **Npm:** `npm install minimal-react-modal --save-dev`
+- **Yarn:** `yarn add minimal-react-modal --dev`
 
 # Use
 
-See the [Storybook](https://benshope.github.io/minimal-react-modal) and it's [source](https://github.com/benshope/minimal-react-modal/blob/master/stories.js) for usage examples to copy.
+See the [examples](https://benshope.github.io/minimal-react-modal) and the [examples source code](https://github.com/benshope/minimal-react-modal/blob/master/stories.js) for usage snippets to copy.
 
 # Help
 
