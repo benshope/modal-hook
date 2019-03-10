@@ -7,6 +7,7 @@
         "dist"
     ],
     "scripts": {
+        "build": "./node_modules/.bin/webpack --mode=production",
         "deploy": "build-storybook -o docs && storybook-to-ghpages",
         "start": "npm run storybook",
         "storybook": "start-storybook -p 9001",
@@ -26,6 +27,8 @@
     },
     "devDependencies": {
         "@babel/core": "^7.3.4",
+        "@babel/preset-env": "^7.3.4",
+        "@babel/preset-react": "^7.0.0",
         "@storybook/addon-a11y": "^5",
         "@storybook/addon-actions": "^5",
         "@storybook/addon-info": "^5",
@@ -33,7 +36,7 @@
         "@storybook/addon-storyshots": "^5",
         "@storybook/react": "^5",
         "@storybook/storybook-deployer": "^2.8.1",
-        "babel-loader": "^8.0.5",
+        "babel-cli": "^6.26.0",
         "eslint": "^5.15.1",
         "eslint-config-airbnb": "^17.1.0",
         "eslint-plugin-import": "^2.16.0",
@@ -41,7 +44,8 @@
         "eslint-plugin-react": "^7.12.4",
         "prettier": "1.16.4",
         "react": "^16.8",
-        "react-dom": "^16.8"
+        "react-dom": "^16.8",
+        "webpack-cli": "^3.2.3"
     },
     "esLintConfig": {
         "env": {
@@ -64,6 +68,12 @@
             "react"
         ],
         "rules": {}
+    },
+    "babel": {
+        "presets": [
+            "@babel/preset-env",
+            "@babel/preset-react"
+        ]
     },
     "prettier": {
         "trailingComma": "es5",
