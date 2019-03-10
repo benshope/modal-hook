@@ -1,8 +1,8 @@
 # React Modal Hook
 
 ![gzip size](http://img.badgesize.io/https://unpkg.com/modal-hook/dist/index.js?compression=gzip)
-[![npm version](https://img.shields.io/npm/v/redux.svg)](https://www.npmjs.com/package/modal-hook)
-[![npm downloads](https://img.shields.io/npm/dm/redux.svg)](https://www.npmjs.com/package/modal-hook)
+[![npm version](https://img.shields.io/npm/v/modal-hook.svg)](https://www.npmjs.com/package/modal-hook)
+[![npm downloads](https://img.shields.io/npm/dm/modal-hook.svg)](https://www.npmjs.com/package/modal-hook)
 
 This is a simple hook that shows a modal. The implementation is one file, it can be styled and it has no dependencies.
 
