@@ -27,11 +27,13 @@ const modalStyles = {
     maxHeight: 'calc(100% - 1em)',
 }
 
-const useModal = (modalCreator, { target, style, open, required }) => {
+const useModal = (modalCreator, options) => {
     let openModal
     let resolveCallback
     const Modal = () => {
-        const [isModalOpen, setModalOpen] = React.useState(open || false)
+        const [isModalOpen, setModalOpen] = React.useState(
+            (options && options.open) || false
+        )
         openModal = () => {
             setModalOpen(true)
             return new Promise(r => {
@@ -48,7 +50,7 @@ const useModal = (modalCreator, { target, style, open, required }) => {
                   <div
                       className="modal-background"
                       onClick={e => {
-                          !required &&
+                          !(options && options.required) &&
                               (modalRef.current &&
                                   !modalRef.current.contains(e.target)) &&
                               setModalOpen(false)
@@ -69,7 +71,7 @@ const useModal = (modalCreator, { target, style, open, required }) => {
                           {modalCreator(x => closeModal(x))}
                       </div>
                   </div>,
-                  target || document.body
+                  (options && options.target) || document.body
               )
             : null
     }
