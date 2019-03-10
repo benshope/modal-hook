@@ -17,9 +17,12 @@
     "keywords": [
         "modal",
         "react",
+        "ui",
+        "hooks",
+        "hook",
+        "react-hooks",
         "small",
-        "simple",
-        "light"
+        "simple"
     ],
     "license": "MIT",
     "dependencies": {},
