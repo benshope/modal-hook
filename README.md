@@ -8,8 +8,8 @@ This is a React hook that displays a modal. The implementation is one file, it c
 
 ## Install
 
--   **Npm:** `npm install modal-hook --save-dev`
--   **Yarn:** `yarn add modal-hook --dev`
+-   **Npm:** `npm install modal-hook`
+-   **Yarn:** `yarn add modal-hook`
 
 ## Use
 
