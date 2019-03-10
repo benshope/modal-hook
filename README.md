@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/modal-hook.svg)](https://www.npmjs.com/package/modal-hook)
 [![npm downloads](https://img.shields.io/npm/dm/modal-hook.svg)](https://www.npmjs.com/package/modal-hook)
 
-This is a React hook that displays a modal. The implementation is one file, it can be styled and it has no dependencies.
+This is a React hook that displays a modal. The implementation is one file, it can be styled, and it has no dependencies.
 
 ## Install
 
