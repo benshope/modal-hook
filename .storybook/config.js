@@ -1,10 +1,10 @@
-import { configure, addDecorator } from "@storybook/react";
-import { withInfo } from "@storybook/addon-info";
+import { configure, addDecorator } from '@storybook/react'
+import { withInfo } from '@storybook/addon-info'
 
-addDecorator(withInfo({ inline: true }));
+addDecorator(withInfo({ inline: true }))
 
 function loadStories() {
-  require("../stories");
+	require('../stories')
 }
 
-configure(loadStories, module);
+configure(loadStories, module)

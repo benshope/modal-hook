@@ -7,8 +7,7 @@
         "dist"
     ],
     "scripts": {
-        "build:storybook": "build-storybook -o docs",
-        "deploy:storybook": "storybook-to-ghpages",
+        "deploy": "build-storybook -o docs && storybook-to-ghpages",
         "start": "npm run storybook",
         "storybook": "start-storybook -p 9001",
         "test": "jest"
