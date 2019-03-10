@@ -30,13 +30,41 @@ const MyComponent() => {
             )
         )
         return (
-            <div> 
+            <div>
                 <h1>My Page</h1>
                 <p>Content on page</p>
                 <button onClick={openModal}>
                     Open Modal
                 </button>
                 {modal}
+            </div>
+        )
+    })
+```
+
+## Use Modal Result
+
+```jsx
+import React from 'react';
+import useModal from 'modal-hook';
+
+const MyComponent() => {
+        const [modalElement, openModal] = useModal(closeModal => (
+            <div>
+                <div>{'Modal  Content'}</div>
+                <button
+                    onClick={() => closeModal('result of action in modal')}
+                >
+                    {'Close Modal'}
+                </button>
+            </div>
+        ))
+        return (
+            <div className="App">
+                <button onClick={() => openModal().then(console.log)}>
+                    Open Modal
+                </button>
+                {modalElement}
             </div>
         )
     })
