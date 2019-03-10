@@ -1,7 +1,7 @@
 {
     "name": "modal-hook",
-    "version": "0.0.9",
-    "description": "Light React Modal",
+    "version": "0.0.1",
+    "description": "React Modal Hook",
     "main": "dist/index.js",
     "files": [
         "dist"
