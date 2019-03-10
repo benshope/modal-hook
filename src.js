@@ -9,7 +9,7 @@ const backdropStyles = {
     height: '100%',
     zIndex: 10,
     transform: 'translateZ(0)',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
 }
 
 const modalStyles = {
@@ -46,7 +46,7 @@ const useModal = (modalCreator, target, styles) => {
         return isModalOpen
             ? ReactDOM.createPortal(
                   <div
-                      className={'modal-background'}
+                      className="modal-background"
                       onClick={e => {
                           modalRef.current &&
                               !modalRef.current.contains(e.target) &&
@@ -58,7 +58,7 @@ const useModal = (modalCreator, target, styles) => {
                       }}
                   >
                       <div
-                          className={'modal-wrapper'}
+                          className="modal-wrapper"
                           ref={modalRef}
                           style={{
                               ...modalStyles,

@@ -19,7 +19,7 @@ module.exports = {
         path: path.resolve(__dirname, './dist'),
         filename: 'index.js',
         library: 'light-react-modal',
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs',
     },
     resolve: {
         alias: {
