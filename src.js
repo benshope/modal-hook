@@ -30,7 +30,7 @@ const modalStyles = {
 const useModal = (modalCreator, target, styles) => {
     let openModal
     let resolveCallback
-    const Modal = () => {
+    const Modal = React.memo(() => {
         const [isModalOpen, setModalOpen] = React.useState(false)
         openModal = () => {
             setModalOpen(true)
@@ -45,38 +45,34 @@ const useModal = (modalCreator, target, styles) => {
         const modalRef = React.useRef()
         return isModalOpen
             ? ReactDOM.createPortal(
-                  React.createElement(
-                      'div',
-                      {
-                          className: 'modal-background',
-                          onClick: e => {
-                              modalRef.current &&
-                                  !modalRef.current.contains(e.target) &&
-                                  setModalOpen(false)
-                          },
-                          style: {
-                              ...backdropStyles,
-                              ...((styles && styles.backdrop) || {}),
-                          },
-                      },
-                      React.createElement(
-                          'div',
-                          {
-                              className: 'modal-wrapper',
-                              ref: modalRef,
-                              style: {
-                                  ...modalStyles,
-                                  ...((styles && styles.modal) || {}),
-                              },
-                          },
-                          modalCreator(x => closeModal(x))
-                      )
-                  ),
+                  <div
+                      className={'modal-background'}
+                      onClick={e => {
+                          modalRef.current &&
+                              !modalRef.current.contains(e.target) &&
+                              setModalOpen(false)
+                      }}
+                      style={{
+                          ...backdropStyles,
+                          ...((styles && styles.backdrop) || {}),
+                      }}
+                  >
+                      <div
+                          className={'modal-wrapper'}
+                          ref={modalRef}
+                          style={{
+                              ...modalStyles,
+                              ...((styles && styles.modal) || {}),
+                          }}
+                      >
+                          {modalCreator(x => closeModal(x))}
+                      </div>
+                  </div>,
                   target || document.body
               )
             : null
-    }
-    const modal = React.createElement(Modal)
+    })
+    const modal = <Modal />
     return [modal, () => openModal()]
 }
 

@@ -20,7 +20,7 @@ const MyComponent() => {
                 <div>
                     <h1>My Modal</h1>
                     <p>Content in modal</p>
-                    <button style={buttonStyle} onClick={closeModal}>
+                    <button onClick={closeModal}>
                         Close Modal
                     </button>
                 </div>
@@ -30,7 +30,7 @@ const MyComponent() => {
             <div>
                 <h1>My Page</h1>
                 <p>Content on page</p>
-                <button style={buttonStyle} onClick={openModal}>
+                <button onClick={openModal}>
                     Open Modal
                 </button>
                 {modal}
