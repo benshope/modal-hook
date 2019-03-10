@@ -90,7 +90,7 @@ Customize the modal by passing these optional props to the second argument of `u
 | Prop     | Description                                             |
 | -------- | ------------------------------------------------------- |
 | open     | initial open state of the modal                         |
-| required | require the user to take an action shown in the modal to close it by disabling backdrop click |
+| required | require the user to take an action shown in the modal by disabling backdrop click |
 | style    | style object overrides for `{modal, backdrop}`          |
 | target   | the portal target - usually `document.body`             |
 
