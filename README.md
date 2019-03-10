@@ -30,7 +30,7 @@ const MyComponent() => {
             )
         )
         return (
-            <div>
+            <div> 
                 <h1>My Page</h1>
                 <p>Content on page</p>
                 <button onClick={openModal}>
