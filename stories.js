@@ -1,94 +1,91 @@
 // @flow
-import React, { useState } from "react";
-import { action } from "@storybook/addon-actions";
-import { storiesOf } from "@storybook/react";
-import styled from "styled-components";
+import React, { useState } from 'react'
+import { action } from '@storybook/addon-actions'
+import { storiesOf } from '@storybook/react'
 
-import { useModal, Backdrop, Modal } from "./src";
+import useModal from './src'
 
-const Button = styled.button`
-  padding: 1rem;
-  margin-top: 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 4px;
-  :hover {
-    background: #f2f2f2;
-  }
-  :active {
-    background: #c0c0c0;
-  }
-  :focus {
-    outline: none;
-  }
-`;
+const buttonStyle = {
+    padding: '1rem',
+    marginTop: '1rem',
+    fontSize: '1rem',
+    cursor: 'pointer',
+    borderRadius: '4px',
+}
 
-const stories = storiesOf("Modal", module)
-  .add("default", () => {
-    const [modalElement, openModal] = useModal(closeModal => (
-      <div>
-        <div>{"Modal  Content"}</div>
-        <Button onClick={closeModal}>{"Close Modal"}</Button>
-      </div>
-    ));
-    return (
-      <div className="App">
-        <Button onClick={openModal}>Open Modal</Button>
-        {modalElement}
-      </div>
-    );
-  })
-  .add("custom backdrop", () => {
-    const backdrop = styled(Backdrop)`
-      background: black;
-    `;
-    const [modalElement, openModal] = useModal(
-      closeModal => (
-        <div>
-          <div>{"Modal  Content"}</div>
-          <Button onClick={closeModal}>{"Close Modal"}</Button>
-        </div>
-      ),
-      { backdrop }
-    );
-    return (
-      <div className="App">
-        <Button onClick={openModal}>Open Modal</Button>
-        {modalElement}
-      </div>
-    );
-  });
+const stories = storiesOf('Modal', module)
+    .add('default', () => {
+        const [modalElement, openModal] = useModal(closeModal => (
+            <div>
+                <div>{'Modal  Content'}</div>
+                <button style={buttonStyle} onClick={closeModal}>
+                    {'Close Modal'}
+                </button>
+            </div>
+        ))
+        return (
+            <div className="App">
+                <button style={buttonStyle} onClick={openModal}>
+                    Open Modal
+                </button>
+                {modalElement}
+            </div>
+        )
+    })
+    .add('custom backdrop', () => {
+        const [modalElement, openModal] = useModal(
+            closeModal => (
+                <div>
+                    <div>{'Modal  Content'}</div>
+                    <button style={buttonStyle} onClick={closeModal}>
+                        {'Close Modal'}
+                    </button>
+                </div>
+            ),
+            null,
+            { backdrop: { background: 'black' } }
+        )
+        return (
+            <div className="App">
+                <button style={buttonStyle} onClick={openModal}>
+                    Open Modal
+                </button>
+                {modalElement}
+            </div>
+        )
+    })
 
 const modalTypeColors = {
-  success: "green",
-  info: "teal",
-  warning: "yellow",
-  error: "red"
-};
+    success: 'green',
+    info: 'teal',
+    warning: 'yellow',
+    error: 'red',
+}
 
 Object.keys(modalTypeColors).forEach(type => {
-  stories.add(type, () => {
-    const backdrop = styled(Backdrop)`
-      background: rgba(0, 0, 0, 0);
-    `;
-    const modal = styled(Modal)`
-      background: ${() => modalTypeColors[type]};
-      color: white;
-    `;
-    const [modalElement, openModal] = useModal(
-      closeModal => (
-        <div>
-          <div>{"Modal  Content"}</div>
-          <Button onClick={closeModal}>{"Close Modal"}</Button>
-        </div>
-      ),
-      { backdrop, modal }
-    );
-    return (
-      <div className="App">
-        <Button onClick={openModal}>Open Modal</Button>
-        {modalElement}
-      </div>
-    );
-  });
-});
+    stories.add(type, () => {
+        const [modalElement, openModal] = useModal(
+            closeModal => (
+                <div>
+                    <div>{'Modal  Content'}</div>
+                    <button style={buttonStyle} onClick={closeModal}>
+                        {'Close Modal'}
+                    </button>
+                </div>
+            ),
+            null,
+            {
+                backdrop: { background: 'rgba(0, 0, 0, 0)' },
+                modal: { background: modalTypeColors[type], color: 'white' },
+            }
+        )
+        return (
+            <div className="App">
+                <button style={buttonStyle} onClick={openModal}>
+                    Open Modal
+                </button>
+                {modalElement}
+            </div>
+        )
+    })
+})
