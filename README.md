@@ -42,7 +42,7 @@ const MyComponent() => {
     })
 ```
 
-## Use Modal Result
+## Use With Options
 
 ```jsx
 import React from 'react';
@@ -58,7 +58,20 @@ const MyComponent() => {
                     {'Close Modal'}
                 </button>
             </div>
-        ))
+        ),
+        {
+            required: true,
+            open: true,
+            target: document.body,
+            style: {
+                modal: {
+                    border: '5px solid black',
+                },
+                backdrop: {
+                    background: 'teal',
+                },
+            },
+        })
         return (
             <div className="App">
                 <button onClick={() => openModal().then(console.log)}>
@@ -72,28 +85,14 @@ const MyComponent() => {
 
 ## Options
 
+Customize the modal by passing these optional props to the second argument of `useModal`:
+
 | Prop     | Description                                             |
 | -------- | ------------------------------------------------------- |
-| open     | modal initial open state                                |
-| required | require user action by disabling modal background click |
+| open     | initial open state of the modal                         |
+| required | require the user to take an action shown in the modal to close it by disabling backdrop click |
 | style    | style object overrides for `{modal, backdrop}`          |
 | target   | the portal target - usually `document.body`             |
-
-```jsx
-useModal(close => <div onClick={close}>Modal Content</div>, {
-    required: true,
-    open: true,
-    target: document.body,
-    style: {
-        modal: {
-            border: '1px solid red',
-        },
-        backdrop: {
-            background: 'green',
-        },
-    },
-})
-```
 
 See the [examples](https://benshope.github.io/modal-hook) and the [examples source code](https://github.com/benshope/modal-hook/blob/master/stories.js) for more snippets to copy.
 
