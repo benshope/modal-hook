@@ -1,8 +1,8 @@
 # Light React Modal
 
 ![gzip size](http://img.badgesize.io/https://unpkg.com/light-react-modal/dist/index.js?compression=gzip)
-[![npm version](https://img.shields.io/npm/v/redux.svg)](https://www.npmjs.com/package/light-react-modal)
-[![npm downloads](https://img.shields.io/npm/dm/redux.svg)](https://www.npmjs.com/package/light-react-modal)
+[![npm version](https://img.shields.io/npm/v/light-react-modal.svg)](https://www.npmjs.com/package/light-react-modal)
+[![npm downloads](https://img.shields.io/npm/dm/light-react-modal.svg)](https://www.npmjs.com/package/light-react-modal)
 
 The idea behind this modal component is to keep it simple. The implementation is one file and it has no dependencies.
 
