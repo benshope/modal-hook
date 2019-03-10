@@ -5,29 +5,17 @@ import { storiesOf } from '@storybook/react'
 
 import useModal from './src'
 
-const buttonStyle = {
-    padding: '1rem',
-    marginTop: '1rem',
-    fontSize: '1rem',
-    cursor: 'pointer',
-    borderRadius: '4px',
-}
-
 const stories = storiesOf('Modal', module)
     .add('default', () => {
         const [modalElement, openModal] = useModal(closeModal => (
             <div>
                 <div>{'Modal  Content'}</div>
-                <button style={buttonStyle} onClick={closeModal}>
-                    {'Close Modal'}
-                </button>
+                <button onClick={closeModal}>{'Close Modal'}</button>
             </div>
         ))
         return (
             <div className="App">
-                <button style={buttonStyle} onClick={openModal}>
-                    Open Modal
-                </button>
+                <button onClick={openModal}>Open Modal</button>
                 {modalElement}
             </div>
         )
@@ -37,9 +25,7 @@ const stories = storiesOf('Modal', module)
             closeModal => (
                 <div>
                     <div>{'Modal  Content'}</div>
-                    <button style={buttonStyle} onClick={closeModal}>
-                        {'Close Modal'}
-                    </button>
+                    <button onClick={closeModal}>{'Close Modal'}</button>
                 </div>
             ),
             null,
@@ -47,9 +33,7 @@ const stories = storiesOf('Modal', module)
         )
         return (
             <div className="App">
-                <button style={buttonStyle} onClick={openModal}>
-                    Open Modal
-                </button>
+                <button onClick={openModal}>Open Modal</button>
                 {modalElement}
             </div>
         )
@@ -68,9 +52,7 @@ Object.keys(modalTypeColors).forEach(type => {
             closeModal => (
                 <div>
                     <div>{'Modal  Content'}</div>
-                    <button style={buttonStyle} onClick={closeModal}>
-                        {'Close Modal'}
-                    </button>
+                    <button onClick={closeModal}>{'Close Modal'}</button>
                 </div>
             ),
             null,
@@ -81,9 +63,7 @@ Object.keys(modalTypeColors).forEach(type => {
         )
         return (
             <div className="App">
-                <button style={buttonStyle} onClick={openModal}>
-                    Open Modal
-                </button>
+                <button onClick={openModal}>Open Modal</button>
                 {modalElement}
             </div>
         )
