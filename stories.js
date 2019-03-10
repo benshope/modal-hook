@@ -5,15 +5,20 @@ import { storiesOf } from '@storybook/react'
 
 import useModal from './src'
 
+const ipsum =
+    "Lorem ipsum dolor amet dreamcatcher before they sold out copper mug pok pok whatever vinyl, offal woke scenester craft beer. Kombucha edison bulb air plant banh mi, vape raclette keytar etsy. Stumptown af asymmetrical succulents, man braid four loko banjo. Polaroid kinfolk poutine fixie street art typewriter schlitz mixtape bespoke squid adaptogen. Four dollar toast tote bag cardigan, taiyaki distillery af raw denim messenger bag put a bird on it jean shorts next level. Drinking vinegar tote bag artisan cronut 90's tbh keytar. Pug tilde 8-bit, fanny pack brunch polaroid kombucha dreamcatcher."
+
+const renderModal = closeModal => (
+    <div>
+        <h1>Modal Header</h1>
+        <p>{ipsum}</p>
+        <button onClick={closeModal}>{'Close Modal'}</button>
+    </div>
+)
+
 const stories = storiesOf('Modal', module)
     .add('default', () => {
-        const [modalElement, openModal] = useModal(closeModal => (
-            <div>
-                <div>{'Modal  Content'}</div>
-                <button onClick={closeModal}>{'Close Modal'}</button>
-            </div>
-        ))
-        openModal()
+        const [modalElement, openModal] = useModal(renderModal, { open: true })
         return (
             <div className="App">
                 <button onClick={openModal}>Open Modal</button>
@@ -21,18 +26,33 @@ const stories = storiesOf('Modal', module)
             </div>
         )
     })
-    .add('close with promise resolve', () => {
-        const [modalElement, openModal] = useModal(closeModal => (
-            <div>
-                <div>{'Modal  Content'}</div>
-                <button
-                    onClick={() => closeModal('Result of actions in modal')}
-                >
-                    {'Close Modal'}
-                </button>
+    .add('required', () => {
+        const [modalElement, openModal] = useModal(renderModal, {
+            open: true,
+            required: true,
+        })
+        return (
+            <div className="App">
+                <button onClick={openModal}>Open Modal</button>
+                {modalElement}
             </div>
-        ))
-        openModal().then(action('closeModal'))
+        )
+    })
+    .add('with promise', () => {
+        const [modalElement, openModal] = useModal(
+            closeModal => (
+                <div>
+                    <h1>Modal Header</h1>
+                    <p>{ipsum}</p>
+                    <button
+                        onClick={() => closeModal('Result of actions in modal')}
+                    >
+                        {'Close Modal'}
+                    </button>
+                </div>
+            ),
+            { open: true }
+        )
         return (
             <div className="App">
                 <button onClick={() => openModal().then(action('closeModal'))}>
@@ -46,15 +66,13 @@ const stories = storiesOf('Modal', module)
         const [modalElement, openModal] = useModal(
             closeModal => (
                 <div>
-                    <div>{'Modal  Content'}</div>
+                    <h1>Modal Header</h1>
+                    <p>{'Modal  Content'}</p>
                     <button onClick={closeModal}>{'Close Modal'}</button>
                 </div>
             ),
-            null,
-            { backdrop: { background: 'black' } }
+            { open: true, style: { backdrop: { background: 'black' } } }
         )
-        openModal()
-
         return (
             <div className="App">
                 <button onClick={openModal}>Open Modal</button>
@@ -64,28 +82,24 @@ const stories = storiesOf('Modal', module)
     })
 
 const modalTypeColors = {
-    success: 'green',
+    success: '#28a745',
     info: 'teal',
-    warning: 'yellow',
-    error: 'red',
+    warning: '#ffc107',
+    error: '#dc3545',
 }
 
 Object.keys(modalTypeColors).forEach(type => {
     stories.add(type, () => {
-        const [modalElement, openModal] = useModal(
-            closeModal => (
-                <div>
-                    <div>{'Modal  Content'}</div>
-                    <button onClick={closeModal}>{'Close Modal'}</button>
-                </div>
-            ),
-            null,
-            {
+        const [modalElement, openModal] = useModal(renderModal, {
+            open: true,
+            style: {
                 backdrop: { background: 'rgba(0, 0, 0, 0)' },
-                modal: { background: modalTypeColors[type], color: 'white' },
-            }
-        )
-        openModal()
+                modal: {
+                    background: modalTypeColors[type],
+                    color: 'white',
+                },
+            },
+        })
         return (
             <div className="App">
                 <button onClick={openModal}>Open Modal</button>

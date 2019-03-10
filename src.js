@@ -27,11 +27,11 @@ const modalStyles = {
     maxHeight: 'calc(100% - 1em)',
 }
 
-const useModal = (modalCreator, target, styles) => {
+const useModal = (modalCreator, { target, style, open, required }) => {
     let openModal
     let resolveCallback
-    const Modal = React.memo(() => {
-        const [isModalOpen, setModalOpen] = React.useState(false)
+    const Modal = () => {
+        const [isModalOpen, setModalOpen] = React.useState(open || false)
         openModal = () => {
             setModalOpen(true)
             return new Promise(r => {
@@ -48,13 +48,14 @@ const useModal = (modalCreator, target, styles) => {
                   <div
                       className="modal-background"
                       onClick={e => {
-                          modalRef.current &&
-                              !modalRef.current.contains(e.target) &&
+                          !required &&
+                              (modalRef.current &&
+                                  !modalRef.current.contains(e.target)) &&
                               setModalOpen(false)
                       }}
                       style={{
                           ...backdropStyles,
-                          ...((styles && styles.backdrop) || {}),
+                          ...((style && style.backdrop) || {}),
                       }}
                   >
                       <div
@@ -62,7 +63,7 @@ const useModal = (modalCreator, target, styles) => {
                           ref={modalRef}
                           style={{
                               ...modalStyles,
-                              ...((styles && styles.modal) || {}),
+                              ...((style && style.modal) || {}),
                           }}
                       >
                           {modalCreator(x => closeModal(x))}
@@ -71,7 +72,7 @@ const useModal = (modalCreator, target, styles) => {
                   target || document.body
               )
             : null
-    })
+    }
     const modal = <Modal />
     return [modal, () => openModal()]
 }

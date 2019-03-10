@@ -70,6 +70,31 @@ const MyComponent() => {
     })
 ```
 
+## Options
+
+| Prop     | Description                                             |
+| -------- | ------------------------------------------------------- |
+| open     | modal initial open state                                |
+| required | require user action by disabling modal background click |
+| style    | style object overrides for `{modal, backdrop}`          |
+| target   | the portal target - usually `document.body`             |
+
+```jsx
+useModal(close => <div onClick={close}>Modal Content</div>, {
+    required: true,
+    open: true,
+    target: document.body,
+    style: {
+        modal: {
+            border: '1px solid red',
+        },
+        backdrop: {
+            background: 'green',
+        },
+    },
+})
+```
+
 See the [examples](https://benshope.github.io/modal-hook) and the [examples source code](https://github.com/benshope/modal-hook/blob/master/stories.js) for more snippets to copy.
 
 ## Help
