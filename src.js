@@ -29,7 +29,7 @@ const modalStyles = {
 
 const useModal = (modalCreator, target, styles) => {
     let openModal
-    let resolveCallback = null
+    let resolveCallback
     const Modal = () => {
         const [isModalOpen, setModalOpen] = React.useState(false)
         openModal = () => {
@@ -42,7 +42,7 @@ const useModal = (modalCreator, target, styles) => {
             setModalOpen(false)
             resolveCallback(resolveWith)
         }
-        const modalRef: any = React.useRef()
+        const modalRef = React.useRef()
         return isModalOpen
             ? ReactDOM.createPortal(
                   React.createElement(
