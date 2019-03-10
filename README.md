@@ -1,20 +1,21 @@
-# Light React Modal
+# React Modal Hook
 
-![gzip size](http://img.badgesize.io/https://unpkg.com/light-react-modal/dist/index.js?compression=gzip)
-[![npm version](https://img.shields.io/npm/v/redux.svg)](https://www.npmjs.com/package/light-react-modal)
-[![npm downloads](https://img.shields.io/npm/dm/redux.svg)](https://www.npmjs.com/package/light-react-modal)
+![gzip size](http://img.badgesize.io/https://unpkg.com/modal-hook/dist/index.js?compression=gzip)
+[![npm version](https://img.shields.io/npm/v/redux.svg)](https://www.npmjs.com/package/modal-hook)
+[![npm downloads](https://img.shields.io/npm/dm/redux.svg)](https://www.npmjs.com/package/modal-hook)
 
-The idea behind this modal component is to keep it simple. The implementation is one file and it has no dependencies.
+This is a simple hook that shows a modal. The implementation is one file, it can be styled and it has no dependencies.
 
 ## Install
 
--   **Npm:** `npm install light-react-modal --save-dev`
--   **Yarn:** `yarn add light-react-modal --dev`
+-   **Npm:** `npm install modal-hook --save-dev`
+-   **Yarn:** `yarn add modal-hook --dev`
 
 ## Use
 
-```
-import useModal from 'light-react-modal';
+```jsx
+import React from 'react';
+import useModal from 'modal-hook';
 
 const MyComponent() => {
         const [modal, openModal] = useModal(
@@ -41,8 +42,8 @@ const MyComponent() => {
     })
 ```
 
-See the [examples](https://benshope.github.io/light-react-modal) and the [examples source code](https://github.com/benshope/light-react-modal/blob/master/stories.js) for more snippets to copy.
+See the [examples](https://benshope.github.io/modal-hook) and the [examples source code](https://github.com/benshope/modal-hook/blob/master/stories.js) for more snippets to copy.
 
 ## Help
 
-If there are any examples you'd like to see or use cases I didn't cover, please [file an issue](https://github.com/benshope/light-react-modal/issues/new).
+If there are any examples you'd like to see or use cases I didn't cover, please [file an issue](https://github.com/benshope/modal-hook/issues/new).

@@ -18,7 +18,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './dist'),
         filename: 'index.js',
-        library: 'light-react-modal',
+        library: 'modal-hook',
         libraryTarget: 'commonjs',
     },
     resolve: {
