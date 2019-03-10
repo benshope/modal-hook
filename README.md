@@ -1,6 +1,6 @@
 # Light React Modal
 
-The idea behind this modal component is to keep it simple. The implementation is one file, it handles most use cases and it has no dependencies.
+The idea behind this modal component is to keep it simple. The implementation is one file and it has no dependencies.
 
 ## Install
 
