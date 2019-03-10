@@ -57,7 +57,10 @@ const useModal = (modalCreator, options) => {
                       }}
                       style={{
                           ...backdropStyles,
-                          ...((style && style.backdrop) || {}),
+                          ...((options &&
+                              options.style &&
+                              options.style.backdrop) ||
+                              {}),
                       }}
                   >
                       <div
@@ -65,7 +68,10 @@ const useModal = (modalCreator, options) => {
                           ref={modalRef}
                           style={{
                               ...modalStyles,
-                              ...((style && style.modal) || {}),
+                              ...((options &&
+                                  options.style &&
+                                  options.style.modal) ||
+                                  {}),
                           }}
                       >
                           {modalCreator(x => closeModal(x))}
